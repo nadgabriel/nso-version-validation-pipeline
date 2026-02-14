@@ -1,0 +1,13 @@
+stages:
+  - validate
+
+variables:
+  EXPECTED_NSO_VERSION: "6.4"
+
+validate_nso_version:
+  stage: validate
+  image: cisco-nso:6.4
+
+  script:
+    - chmod +x scripts/check_nso_version.sh
+    - ./scripts/check_nso_version.sh $EXPECTED_NSO_VERSION
